@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/lodash-es": "^4.17.5",
     "@types/node": "^17.0.5",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
@@ -23,7 +24,10 @@
   },
   "dependencies": {
     "@bombitmanbomb/neosjs": "^1.15.2",
+    "axios": "^0.24.0",
+    "deepdash": "^5.3.9",
     "googleapis": "^39.2.0",
+    "lodash": "^4.17.21",
     "mysql": "^2.18.1",
     "typeorm": "^0.2.41"
   }

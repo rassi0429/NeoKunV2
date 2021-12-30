@@ -9,5 +9,6 @@
     "username": "mariadb",
     "password": "password",
     "database": "neokun"
-  }
+  },
+  "decompressUrl": "https://decompress.kokoa.dev/?id="
 }

@@ -24,4 +24,8 @@ export class Config {
     static getDBConfig () {
       return config.db
     }
+
+    static getDecompUrl () {
+      return config.decompressUrl
+    }
 }
