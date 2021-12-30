@@ -11,9 +11,13 @@ export class User implements IUser {
 
     @Column({ type: "text", default: null })
     userId?: string;
+
+    @Column({ type: "text", default: null })
+    userName?: string;
 }
 
 export interface IUser {
     id? : number
     userId?: string
+    userName?: string
 }
