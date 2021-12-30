@@ -24,7 +24,7 @@ export class EventLocation implements IEventLocation {
 }
 
 export interface IEventLocation {
-    id: number
+    id?: number
     event: IEvent
     text?: string
     userId?: string

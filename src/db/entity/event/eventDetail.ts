@@ -24,7 +24,7 @@ export class EventDetail implements IEventDetail {
 }
 
 export class IEventDetail {
-    id: number
+    id?: number
     event: IEvent
     ja?: string
     en?: string

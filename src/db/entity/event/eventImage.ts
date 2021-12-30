@@ -18,7 +18,7 @@ export class EventImage implements IEventImage {
 }
 
 export interface IEventImage {
-    id: number
+    id?: number
     event: IEvent
     url: string
 }

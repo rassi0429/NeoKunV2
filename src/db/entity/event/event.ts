@@ -42,7 +42,7 @@ export class Event implements IEvent {
 }
 
 export interface IEvent {
-    id: number
+    id?: number
     name: IEventName
     location: IEventLocation
     start?: number
