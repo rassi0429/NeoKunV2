@@ -1,5 +1,6 @@
 import { calendar_v3 as calenderV3, google } from "googleapis"
 import { Config } from "./config"
+import { Event } from "./db/entity/event/event"
 
 export class Calendar {
   private client: any
@@ -26,5 +27,17 @@ export class Calendar {
       orderBy: "startTime"
     })
     return data
+  }
+
+  async addEvent (event: Event) {
+
+  }
+
+  async deleteEvent (event: Event) {
+
+  }
+
+  async deleteEventOnece (event: Event) {
+
   }
 }
