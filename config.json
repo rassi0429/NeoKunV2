@@ -1,0 +1,13 @@
+{
+  "NeosBot": {
+    "userId": "",
+    "password": ""
+  },
+  "db": {
+    "host": "localhost",
+    "port": 3306,
+    "username": "mariadb",
+    "password": "password",
+    "database": "neokun"
+  }
+}

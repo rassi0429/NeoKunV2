@@ -1,0 +1,13 @@
+version : "3.7"
+services:
+  db:
+    image: mariadb
+    restart: always
+    ports:
+      - "127.0.0.1:3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=neokun
+      - MYSQL_USER=mariadb
+      - MYSQL_PASSWORD=password
+      - TZ=Asia/Tokyo
