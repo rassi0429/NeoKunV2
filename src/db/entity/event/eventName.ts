@@ -3,10 +3,10 @@ import {
   Entity, OneToOne,
   PrimaryGeneratedColumn
 } from "typeorm"
-import { Event } from "./event"
+import { Event, IEvent } from "./event"
 
 @Entity("EventName")
-export class EventName {
+export class EventName implements IEventName {
     @PrimaryGeneratedColumn("increment")
     id!: number
 
@@ -20,5 +20,13 @@ export class EventName {
     en?: string
 
     @Column({ type: "text", nullable: true })
+    ko?: string
+}
+
+export interface IEventName {
+    id: number
+    event: IEvent
+    ja?: string
+    en?: string
     ko?: string
 }

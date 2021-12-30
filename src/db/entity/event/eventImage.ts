@@ -3,10 +3,10 @@ import {
   Entity, ManyToOne, OneToOne,
   PrimaryGeneratedColumn
 } from "typeorm"
-import { Event } from "./event"
+import { Event, IEvent } from "./event"
 
 @Entity("EventImage")
-export class EventImage {
+export class EventImage implements IEventImage {
     @PrimaryGeneratedColumn("increment")
     id!: number
 
@@ -14,5 +14,11 @@ export class EventImage {
     event: Event
 
     @Column({ type: "text", nullable: false })
+    url: string
+}
+
+export interface IEventImage {
+    id: number
+    event: IEvent
     url: string
 }

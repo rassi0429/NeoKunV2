@@ -3,13 +3,13 @@ import {
   Entity, OneToMany, OneToOne,
   PrimaryGeneratedColumn
 } from "typeorm"
-import { EventName } from "./eventName"
-import { EventLocation } from "./eventLocation"
-import { EventDetail } from "./eventDetail"
-import { EventImage } from "./eventImage"
+import { EventName, IEventName } from "./eventName"
+import { EventLocation, IEventLocation } from "./eventLocation"
+import { EventDetail, IEventDetail } from "./eventDetail"
+import { EventImage, IEventImage } from "./eventImage"
 
 @Entity("Event")
-export class Event {
+export class Event implements IEvent {
     @PrimaryGeneratedColumn("increment")
     id!: number
 
@@ -39,4 +39,17 @@ export class Event {
 
     @OneToMany(() => EventImage, (e) => e.event)
     images?: EventImage[]
+}
+
+export interface IEvent {
+    id: number
+    name: IEventName
+    location: IEventLocation
+    start?: number
+    end?: number
+    recurrence?: string
+    detail: IEventDetail
+    twitterTag?: string
+    calenderId?: string
+    images?: IEventImage[]
 }
