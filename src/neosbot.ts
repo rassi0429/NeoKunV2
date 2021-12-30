@@ -48,7 +48,7 @@ export class NeosBot {
           }
           switch (itemType) {
             case "AddEventForm":
-              this.addEvent(itemData)
+              this.addEvent(itemData, m)
               break
             default:
               this.neos.SendTextMessage(m.SenderId, "アイテムが認識できませんでした。")
@@ -56,12 +56,39 @@ export class NeosBot {
           }
         }
       } catch (e) {
-        console.log(e)
+        this.neos.SendTextMessage(m.SenderId, "Hello")
       }
     }
 
-    addEvent (itemData: NeosJson) {
-
+    async addEvent (itemData: NeosJson, msg: any) {
+      const name: IEventName = {
+        en: itemData.getDynamicValueVariable("name.en"),
+        ja: itemData.getDynamicValueVariable("name.ja"),
+        ko: itemData.getDynamicValueVariable("name.ko")
+      }
+      const detail: IEventDetail = {
+        en: itemData.getDynamicValueVariable("detail.en"),
+        ja: itemData.getDynamicValueVariable("detail.ja"),
+        ko: itemData.getDynamicValueVariable("detail.ko")
+      }
+      const location: IEventLocation = {
+        text: itemData.getDynamicValueVariable("location.text"),
+        userId: itemData.getDynamicValueVariable("location.userId"),
+        sessionUrl: itemData.getDynamicValueVariable("location.sessionUrl")
+      }
+      const event: IEvent = {
+        detail,
+        location,
+        name,
+        start: Number(itemData.getDynamicValueVariable("start")),
+        end: Number(itemData.getDynamicValueVariable("end")),
+        recurrence: itemData.getDynamicValueVariable("recurrence"),
+        twitterTag: itemData.getDynamicValueVariable("twitterTag")
+      }
+      await this.neos.SendTextMessage(msg.SenderId, JSON.stringify(name))
+      await this.neos.SendTextMessage(msg.SenderId, JSON.stringify(detail))
+      await this.neos.SendTextMessage(msg.SenderId, JSON.stringify(location))
+      await this.neos.SendTextMessage(msg.SenderId, JSON.stringify({ start: event.start, end: event.end, twitterTag: event.twitterTag, recurrence: event.recurrence }))
     }
 }
 
