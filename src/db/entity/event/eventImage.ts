@@ -1,6 +1,6 @@
 import {
   Column,
-  Entity, ManyToOne, OneToOne,
+  Entity, ManyToOne,
   PrimaryGeneratedColumn
 } from "typeorm"
 import { Event, IEvent } from "./event"
