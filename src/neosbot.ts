@@ -72,7 +72,7 @@ export class NeosBot {
         ko: itemData.getDynamicValueVariable("detail.ko")
       }
       const location: IEventLocation = {
-        text: itemData.getDynamicValueVariable("location.text"),
+        worldName: itemData.getDynamicValueVariable("location.worldName"),
         userId: itemData.getDynamicValueVariable("location.userId"),
         sessionUrl: itemData.getDynamicValueVariable("location.sessionUrl")
       }

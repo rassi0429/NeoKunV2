@@ -14,7 +14,7 @@ export class EventLocation implements IEventLocation {
     event: Event
 
     @Column({ type: "text", nullable: true })
-    text?: string
+    worldName?: string
 
     @Column({ type: "text", nullable: true })
     userId?: string
@@ -26,7 +26,7 @@ export class EventLocation implements IEventLocation {
 export interface IEventLocation {
     id?: number
     event?: IEvent
-    text?: string
+    worldName?: string
     userId?: string
     sessionUrl? : string
 }
