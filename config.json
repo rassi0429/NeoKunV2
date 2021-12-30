@@ -10,5 +10,10 @@
     "password": "password",
     "database": "neokun"
   },
-  "decompressUrl": "https://decompress.kokoa.dev/?id="
+  "decompressUrl": "https://decompress.kokoa.dev/?id=",
+  "discord": {
+    "token": "",
+    "guildId": "",
+    "botId": ""
+  }
 }
