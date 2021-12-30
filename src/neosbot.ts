@@ -29,14 +29,14 @@ export class NeosBot {
           const itemData = new NeosJson(data)
           const itemType = itemData.getDynamicValueVariable("ItemType")
           if (!itemType) {
-            this.neos.sendTextMessage(m.senderId, "アイテムが認識できませんでした。")
+            this.neos.SendTextMessage(m.senderId, "アイテムが認識できませんでした。")
           }
           switch (itemType) {
             case "AddEventForm":
               this.addEvent(itemData)
               break
             default:
-              this.neos.sendTextMessage(m.senderId, "アイテムが認識できませんでした。")
+              this.neos.SendTextMessage(m.senderId, "アイテムが認識できませんでした。")
               break
           }
         }
