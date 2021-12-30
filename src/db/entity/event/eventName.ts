@@ -25,7 +25,7 @@ export class EventName implements IEventName {
 
 export interface IEventName {
     id?: number
-    event: IEvent
+    event?: IEvent
     ja?: string
     en?: string
     ko?: string
