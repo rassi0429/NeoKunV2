@@ -3,19 +3,34 @@ import lodash from "lodash"
 import deepdash from "deepdash"
 import { Config } from "./config"
 import { Logger } from "./logger"
+import { IEventName } from "./db/entity/event/eventName"
+import { IEventDetail } from "./db/entity/event/eventDetail"
+import { IEventLocation } from "./db/entity/event/eventLocation"
+import { IEvent } from "./db/entity/event/event"
 
 const _ = deepdash(lodash)
 
 const Neos = require("@bombitmanbomb/neosjs")
 
 export class NeosBot {
-    private neos = new Neos()
+    neos: any
+
+    constructor () {
+      this.neos = new Neos()
+    }
 
     async init () {
       const config = Config.getNeosBotConfig()
       this.neos.Login(config.userId, config.password)
 
-      this.neos.on("messageReceived", this.messageReceived)
+      this.neos.on("messageReceived", (msg: any) => this.messageReceived(msg))
+      this.neos.on("friendAdded", (friend: any) => this.addFriend(friend))
+    }
+
+    addFriend (friend: any) {
+      if (friend.FriendStatus === "Requested") {
+        this.neos.AddFriend(friend)
+      }
     }
 
     async messageReceived (m: any) {
