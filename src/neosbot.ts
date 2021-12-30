@@ -26,14 +26,27 @@ export class NeosBot {
           this.neos.SendTextMessage(m.senderId, "hello")
         } else {
           const data = await JsonUtil.decompress7zbson(msg.assetUri)
-          // console.log(JSON.stringify(data))
-          const itemdata = new NeosJson(data)
-          console.log(JSON.stringify(itemdata.getDynamicValueVariable("testValue")))
-          console.log(JSON.stringify(itemdata.getDynamicValueVariable("testValue2")))
+          const itemData = new NeosJson(data)
+          const itemType = itemData.getDynamicValueVariable("ItemType")
+          if (!itemType) {
+            this.neos.sendTextMessage(m.senderId, "アイテムが認識できませんでした。")
+          }
+          switch (itemType) {
+            case "AddEventForm":
+              this.addEvent(itemData)
+              break
+            default:
+              this.neos.sendTextMessage(m.senderId, "アイテムが認識できませんでした。")
+              break
+          }
         }
       } catch (e) {
         console.log(e)
       }
+    }
+
+    addEvent (itemData: NeosJson) {
+
     }
 }
 
