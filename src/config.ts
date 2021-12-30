@@ -28,4 +28,8 @@ export class Config {
     static getDecompUrl () {
       return config.decompressUrl
     }
+
+    static getDiscordConfig () {
+      return config.discord
+    }
 }
