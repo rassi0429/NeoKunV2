@@ -7,8 +7,7 @@ import { IEventName } from "./db/entity/event/eventName"
 import { IEventDetail } from "./db/entity/event/eventDetail"
 import { IEventLocation } from "./db/entity/event/eventLocation"
 import { IEvent } from "./db/entity/event/event"
-
-const _ = deepdash(lodash)
+import { NeosJson } from "./NeosJson"
 
 const Neos = require("@bombitmanbomb/neosjs")
 
@@ -89,23 +88,6 @@ export class NeosBot {
       await this.neos.SendTextMessage(msg.SenderId, JSON.stringify(detail))
       await this.neos.SendTextMessage(msg.SenderId, JSON.stringify(location))
       await this.neos.SendTextMessage(msg.SenderId, JSON.stringify({ start: event.start, end: event.end, twitterTag: event.twitterTag, recurrence: event.recurrence }))
-    }
-}
-
-class NeosJson {
-    private data: Object
-
-    constructor (json: string) {
-      this.data = json
-    }
-
-    getDynamicValueVariable (path: string): string {
-      const result = _.findValueDeep(this.data, (value, key, parent, context) => {
-        if (key === "Data" && context.parent?.key === "Value" && context.parent?.parent?.value.VariableName.Data === path) {
-          return true
-        }
-      })
-      return result
     }
 }
 
