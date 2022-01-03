@@ -2,3 +2,6 @@ node_modules/
 build/
 .idea/
 token.json
+src/NeosJson/Components/*
+!src/NeosJson/Components/index.ts
+!src/NeosJson/Components/Grabbable.ts
