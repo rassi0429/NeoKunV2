@@ -4,7 +4,7 @@
   "description": "",
   "main": "build/main.js",
   "scripts": {
-    "watch": "tsc -w",
+    "watch": "tsc-watch --onSuccess \"npx tsc-alias -p tsconfig.json\"",
     "build": "tsc",
     "run": "node ."
   },
@@ -31,6 +31,7 @@
     "lodash": "^4.17.21",
     "mysql": "^2.18.1",
     "tsc-alias": "^1.5.0",
+    "tsc-watch": "^4.6.0",
     "typeorm": "^0.2.41",
     "uuid": "^8.3.2"
   }
