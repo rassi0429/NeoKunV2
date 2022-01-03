@@ -15,7 +15,7 @@ components.forEach(c => {
 function getCode (arg) {
   const list = arg.syncmembers.filter(i => !(i.name == "Enabled" || i.name == "UpdateOrder" || i.name == "persistent"))
   const classMember = list.map(i => { return `${i.name} = new ${getType(i.type)}()` })
-  const inputMember = list.map(i => { return `${i.name}: ${getInputType(i.type)}` })
+  const inputMember = list.map(i => { return `${i.name}?: ${getInputType(i.type)}` })
 
   return `
 import { ComponentBase, ComponentDataBase, ComponentDataBool, ComponentDataNumber, ComponentDataString, ComponentDataUnknown} from "NeosJson/Components"
